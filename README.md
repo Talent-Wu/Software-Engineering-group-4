@@ -34,7 +34,7 @@ Built using Agile methodology, this application combines AI automation with huma
 ## Team Roles and Responsibilities
 
 ### Login Module
-**Lead:** [Name]  
+**Lead:** Yibo Yang
 **Responsibilities:**
 - Develop user authentication system
 - Implement registration interface
@@ -44,7 +44,7 @@ Built using Agile methodology, this application combines AI automation with huma
 **GitHub Branch:** `login`
 
 ### Main Interface Module
-**Lead:** [Name]  
+**Lead:** YuXing Wu, Xiaoyang Guo, Yihan Luo, Yuhong Zong  
 **Sub-Tasks:**
 1. **Transaction Input Panel:**
    - Develop manual entry functionality
@@ -61,7 +61,7 @@ Built using Agile methodology, this application combines AI automation with huma
 **GitHub Branch:** `Main-Interface`
 
 ### User Settings & Documentation Module
-**Lead:** [Name]  
+**Lead:** Yuyang Lu  
 **Responsibilities:**
 - Develop user profile editing functionality
 - Write user manual and built-in help documentation
