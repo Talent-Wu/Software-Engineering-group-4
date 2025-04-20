@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.scene.control.Hyperlink;
 import javafx.stage.Stage;
 
+import java.util.Objects;
+
 public class LoginController {
 
     @FXML
@@ -43,6 +45,21 @@ public class LoginController {
             currentStage.setTitle("忘记密码");
         } catch (Exception e) {
             System.out.println("无法加载忘记密码页面: " + e.getMessage());
+        }
+    }
+    @FXML
+    public void handleLogin() { // 处理Forgot Password链接的点击事件
+        try {
+            Parent forgotPasswordRoot = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Home.fxml")));
+            Stage currentStage = (Stage) forgotPasswordLink.getScene().getWindow(); // 通过链接获取窗口
+
+            Scene newScene = new Scene(forgotPasswordRoot, 800, 600);
+            newScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
+
+            currentStage.setScene(newScene);
+            currentStage.setTitle("home");
+        } catch (Exception e) {
+            System.out.println("无法加载home: " + e.getMessage());
         }
     }
 }
