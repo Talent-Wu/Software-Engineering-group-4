@@ -12,7 +12,6 @@
 <?import javafx.scene.layout.StackPane?>
 
 <StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
-
     <GridPane alignment="center" hgap="10.0" styleClass="login-container" vgap="10">
         <!-- 大标题 -->
         <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #007acc; -fx-translate-y: -40px;" text="Person Finance Software" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
@@ -27,8 +26,7 @@
                 <Insets right="11.0" />
             </GridPane.margin>
         </Button>
-        <Hyperlink styleClass="forget-password" text="Forgot password?" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-
+        <Hyperlink fx:id="forgotPasswordLink" styleClass="forget-password" text="Forgot password?" onAction="#onForgotPasswordAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
         <Hyperlink fx:id="signUpLink" styleClass="forget-password" text="Sign Up" onAction="#onSignUpAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
         <Label text="Create an account?" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
             <GridPane.margin>
@@ -38,7 +36,6 @@
         <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
-
         </columnConstraints>
         <rowConstraints>
             <RowConstraints />
@@ -50,4 +47,3 @@
         </rowConstraints>
     </GridPane>
 </StackPane>
-
