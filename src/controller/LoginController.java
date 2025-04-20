@@ -11,12 +11,14 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+
 public class LoginController {
 
     @FXML
     public TextField usernameTextField;
     @FXML
     public Label tip;
+
     @FXML
     public Hyperlink signUpLink; // 引用FXML中的Sign Up链接
 
@@ -43,5 +45,15 @@ public class LoginController {
             // 显示错误信息
             System.out.println("无法加载注册页面: " + e.getMessage());
         }
+    }
+}
+
+    public LoginController() {
+    }
+
+    @FXML
+    public void onLoginActon(MouseEvent mouseEvent) {
+        String username = usernameTextField.getText();
+
     }
 }
