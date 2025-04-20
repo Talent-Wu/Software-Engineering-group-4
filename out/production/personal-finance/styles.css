@@ -30,3 +30,24 @@
     -fx-text-fill: #005fa3;
     -fx-underline: true;
 }
+
+.menu-item {
+    -fx-padding: 8px 8px;
+    -fx-border-color: #838181;
+    -fx-border-radius: 8px;
+    -fx-background-radius: 8px;
+    -fx-pref-width: 130px;
+}
+.image-view:hover {
+    -fx-border-style: solid;
+    -fx-border-color: #007bff;
+    -fx-border-width: 2px;
+    -fx-cursor: hand;
+}
+.grid-icon {
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-background-size: cover;
+    -fx-pref-width: 60px;
+    -fx-pref-height: 60px;
+}
