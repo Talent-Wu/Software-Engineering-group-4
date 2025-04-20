@@ -11,39 +11,39 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
-<StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
+<StackPane prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController" style="-fx-background-image: url('@img1.png'); -fx-background-size: cover; -fx-background-repeat: no-repeat;">
     <GridPane alignment="center" hgap="10.0" styleClass="login-container" vgap="10">
         <!-- 大标题 -->
-        <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #007acc; -fx-translate-y: -40px;" text="Person Finance Software" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />
+        <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #007acc; -fx-translate-y: -40px;" text="Person Finance Software" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0"/>
 
         <!-- 原有内容 -->
-        <Label style="-fx-font-size: 16px;" text="Email" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField promptText="Please input email.." styleClass="login-input" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-        <Label style="-fx-font-size: 16px;" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <PasswordField promptText="Please input password.." styleClass="login-input" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Button alignment="center" prefHeight="23.0" styleClass="login-button" text="Login" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+        <Label style="-fx-font-size: 16px;" text="Email" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+        <TextField fx:id="emailField" promptText="Please input email.." styleClass="login-input" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+        <Label style="-fx-font-size: 16px;" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+        <PasswordField fx:id="passwordField" promptText="Please input password.." styleClass="login-input" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+        <Button alignment="center" prefHeight="23.0" styleClass="login-button" text="Login" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4" onAction="#handleLogin">
             <GridPane.margin>
-                <Insets right="11.0" />
+                <Insets right="11.0"/>
             </GridPane.margin>
         </Button>
-        <Hyperlink fx:id="forgotPasswordLink" styleClass="forget-password" text="Forgot password?" onAction="#onForgotPasswordAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
-        <Hyperlink fx:id="signUpLink" styleClass="forget-password" text="Sign Up" onAction="#onSignUpAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+        <Hyperlink fx:id="forgotPasswordLink" styleClass="forget-password" text="Forgot password?" onAction="#onForgotPasswordAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3"/>
+        <Hyperlink fx:id="signUpLink" styleClass="forget-password" text="Sign Up" onAction="#onSignUpAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5"/>
         <Label text="Create an account?" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
             <GridPane.margin>
-                <Insets right="61.0" />
+                <Insets right="61.0"/>
             </GridPane.margin>
         </Label>
         <columnConstraints>
-            <ColumnConstraints />
-            <ColumnConstraints />
+            <ColumnConstraints/>
+            <ColumnConstraints/>
         </columnConstraints>
         <rowConstraints>
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
-            <RowConstraints />
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
         </rowConstraints>
     </GridPane>
 </StackPane>
