@@ -25,7 +25,7 @@
                 <Insets right="11.0" />
             </GridPane.margin>
         </Button>
-        <Hyperlink  styleClass="forget-password" text="Forgot password?" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+        <Hyperlink fx:id="forgotPasswordLink" styleClass="forget-password" text="Forgot password?" onAction="#onForgotPasswordAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3"/>
 
         <Label text="Create an account?" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
             <GridPane.margin>
