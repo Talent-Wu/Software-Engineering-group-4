@@ -11,11 +11,14 @@
     <orderEntry type="module-library" exported="">
       <library>
         <CLASSES>
-          <root url="file://C:/Program Files/Java/javafx-sdk-21.0.7/lib" />
+          <root url="file://$USER_HOME$/javafx-sdk-21.0.7/lib" />
         </CLASSES>
         <JAVADOC />
+        <NATIVE>
+          <root url="file://$USER_HOME$/javafx-sdk-21.0.7/lib" />
+        </NATIVE>
         <SOURCES />
-        <jarDirectory url="file://C:/Program Files/Java/javafx-sdk-21.0.7/lib" recursive="false" />
+        <jarDirectory url="file://$USER_HOME$/javafx-sdk-21.0.7/lib" recursive="false" />
       </library>
     </orderEntry>
   </component>

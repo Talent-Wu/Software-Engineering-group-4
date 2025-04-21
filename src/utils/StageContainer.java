@@ -1,11 +1,11 @@
 package utils;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
+import java.io.*;
 import java.util.*;
 
 /**
@@ -13,29 +13,51 @@ import java.util.*;
  */
 public class StageContainer {
     private static final String DB_PATH = "";
+    private static final Map<String, String> fxml2Title = new HashMap<>();
 
+    static {
+        fxml2Title.put("login", "Login");
+        fxml2Title.put("signup", "Sign Up");
+        fxml2Title.put("home", "Home");
+        fxml2Title.put("writing", "Writing");
+    }
     /**
      * Store all stage
      */
-    private static Map<String, Stage> stages = new HashMap<>();
+    private static Stack<Stage> stack = new Stack<>();
 
-    /**
-     * Close stage by a name
-     *
-     * @param stageName
-     */
-    public static void closeStage(String stageName) {
-        stages.get(stageName).close();
+    private static String getTitle(String fxml){
+        String title = fxml2Title.get(fxml);
+        if(title == null) {
+            System.out.println("no title for " + fxml);
+            return "Untitled";
+        } else {
+            return title;
+        }
     }
 
     /**
      * Cache stage
-     *
-     * @param stageName
-     * @param stage
      */
-    public static void addStage(String stageName, Stage stage) {
-        stages.put(stageName, stage);
+    public static void switchStage(String fxml) {
+        switchStage(getTitle(fxml), fxml, true);
+    }
+    public static void switchStage(String title, String fxml, boolean removeParent) {
+        try {
+            Parent panel = FXMLLoader.load(StageContainer.class.getResource("/fxml/" + fxml + ".fxml"));
+            Stage stage = new Stage();
+            stage.setTitle(title);
+            stage.setScene(new Scene(panel));
+            stage.show();
+
+            if (removeParent && !stack.isEmpty()) {
+                Stage parent = stack.pop();
+                parent.close();
+            }
+            stack.push(stage);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     /**

@@ -49,13 +49,13 @@ public class SignUpController {
         }
 
         // 校验账户格式：必须是12位以下全英文的内容，首字母必须大写
-        if (!username.matches("^[A-Z][a-zA-Z]{0,11}$")) {
-            showAlert("Invalid Username", "Username must be up to 12 characters long, all English letters, and start with a capital letter.");
+        if (!username.matches("^[A-Z][a-zA-Z]{0,12}$")) {
+            showAlert("Invalid Username", "Username must be up to 13 characters long, all English letters, and start with a capital letter.");
             return;
         }
 
         // 校验邮箱格式：必须是5位以上十三位以下的数字+@+2-5位字母+.com
-        if (!email.matches("\\d{5,13}@[a-zA-Z]{2,5}\\.com")) {
+        if (!email.matches("^[a-zA-Z0-9]{5,13}@([a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,}$")) {
             showAlert("Invalid Email", "Email must be in the format: 5-13 digits + @ + 2-5 letters + .com");
             return;
         }
@@ -63,6 +63,25 @@ public class SignUpController {
         // 假设注册成功，跳转到登录页面
         System.out.println("Registering user: " + username);
         // 这里可以添加更多的注册逻辑，例如保存用户信息等
+
+        try {
+            System.out.println("Attempting to load Login.fxml...");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Login.fxml")); // 假设登录界面的 FXML 文件路径是 "/fxml/Login.fxml"
+            Parent root = loader.load();
+            System.out.println("Login.fxml loaded successfully.");
+
+            Stage stage = (Stage) registerButton.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            System.out.println("Scene switched to login page.");
+        } catch (Exception e) {
+            System.out.println("Error switching to login page: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onBackAction() {
+        System.out.println("Back button clicked.");
 
         try {
             System.out.println("Attempting to load Login.fxml...");

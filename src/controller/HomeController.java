@@ -1,42 +1,54 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.StackPane;
+import javafx.scene.layout.GridPane;
+import javafx.stage.FileChooser;
+import utils.StageContainer;
+
+import java.awt.*;
+import java.io.File;
+import java.io.IOException;
 
 public class HomeController {
 
     @FXML
-    private StackPane content;
+    public StackPane calendarPane;
 
     @FXML
-    private void onHomeAction() {
-        // 显示主页内容
+    public void initialize() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/calendar.fxml"));
+            GridPane calendarRoot = loader.load();
+            calendarPane.getChildren().add(calendarRoot);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    @FXML
-    private void onIncomeAction() {
-        // 显示收入页面
+    public void handleCsvImport(MouseEvent mouseEvent) {
+        javafx.stage.Stage stage = (javafx.stage.Stage) ((javafx.scene.Node) mouseEvent.getSource()).getScene().getWindow();
+
+        FileChooser fileChooser = new FileChooser();
+        fileChooser.setTitle("Open Csv File");
+        File file = fileChooser.showOpenDialog(stage);
+        if (file != null) {
+            openFile(file);
+        }
     }
 
-    @FXML
-    private void onExpensesAction() {
-        // 显示支出页面
+    private void openFile(File file) {
+        EventQueue.invokeLater(() -> {
+
+        });
     }
 
-    @FXML
-    private void onFutureAction() {
-        // 显示未来计划页面
+    public void handleImageClick(MouseEvent mouseEvent) {
     }
 
-    @FXML
-    private void onMyWalletAction() {
-        // 显示我的钱包页面
-    }
-
-    @FXML
-    private void onPersonalInfoAction() {
-        // 显示个人信息页面
+    public void openWritingWindow(MouseEvent mouseEvent) {
+        StageContainer.switchStage("writing");
     }
 }

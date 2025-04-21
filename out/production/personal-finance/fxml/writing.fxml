@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="800.0" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/19"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WritingController">
+    <!-- 上方输入框 -->
+    <TextField promptText="请输入内容"/>
+
+    <!-- 中间9宫格图标 -->
+    <GridPane alignment="TOP_LEFT" hgap="30" vgap="30">
+        <columnConstraints>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+            <ColumnConstraints/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+            <RowConstraints/>
+        </rowConstraints>
+        <children>
+            <Button text="1" styleClass="grid-icon" style="-fx-background-image: url('/assets/icon_income.png');"/>
+            <Button text="2" styleClass="grid-icon"  style="-fx-background-image: url('/assets/icon_outcome.png');" GridPane.columnIndex="1"/>
+            <Button text="4" styleClass="grid-icon"  style="-fx-background-image: url('/assets/icon_pet.png');" GridPane.rowIndex="1"/>
+            <Button text="5" styleClass="grid-icon"  style="-fx-background-image: url('/assets/icon_phone.png');" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+            <Button text="6" styleClass="grid-icon"  style="-fx-background-image: url('/assets/icon_money.png');" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+            <Button text="7" styleClass="grid-icon"  style="-fx-background-image: url('/assets/icon_lingshi.png');" GridPane.rowIndex="2"/>
+            <Button text="8" styleClass="grid-icon"  style="-fx-background-image: url('/assets/icon_smoke.png');" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+            <Button text="9" styleClass="grid-icon"  style="-fx-background-image: url('/assets/icon_riyong.png');" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+            <Button text="10" styleClass="grid-icon" style="-fx-background-image: url('/assets/icon_huazhuang.png');"  GridPane.rowIndex="3"/>
+            <Button text="11" styleClass="grid-icon" style="-fx-background-image: url('/assets/icon_garden.png');"  GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+            <Button text="12" styleClass="grid-icon" style="-fx-background-image: url('/assets/icon_food.png');"  GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+        </children>
+    </GridPane>
+
+    <!-- 下方输入框 -->
+    <TextField promptText="请输入内容"/>
+    <padding>
+        <Insets bottom="40.0" left="40.0" right="40.0" top="40.0"/>
+    </padding>
+</VBox>

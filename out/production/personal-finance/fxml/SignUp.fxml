@@ -10,6 +10,8 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.image.Image?>
 <StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.SignUpController">
     <GridPane alignment="center" hgap="10.0" styleClass="login-container" vgap="10">
         <!-- 大标题 -->
@@ -35,6 +37,22 @@
         <Button fx:id="registerButton" alignment="center" prefHeight="23.0" styleClass="login-button" text="Register" onAction="#onRegisterAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
             <GridPane.margin>
                 <Insets right="11.0" />
+            </GridPane.margin>
+        </Button>
+
+        <!-- 返回按钮 -->
+        <Button fx:id="backButton" prefHeight="23.0" styleClass="login-button" onAction="#onBackAction" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="7">
+            <graphic>
+                <ImageView>
+                    <image>
+                        <Image url="@/assets/return.png" />
+                    </image>
+                    <fitWidth>50</fitWidth> <!-- 设置图片宽度为50 -->
+                    <fitHeight>50</fitHeight> <!-- 设置图片高度为50 -->
+                </ImageView>
+            </graphic>
+            <GridPane.margin>
+                <Insets right="11" bottom="11.0" />
             </GridPane.margin>
         </Button>
 

@@ -4,8 +4,10 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.TextField;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 public class ForgotPasswordController {
@@ -15,6 +17,15 @@ public class ForgotPasswordController {
 
     @FXML
     private TextField emailField;
+
+    @FXML
+    private PasswordField newPasswordField;
+
+    @FXML
+    private Button resetButton;
+
+    @FXML
+    private Button backButton;
 
     @FXML
     public void onResetPasswordAction() {
@@ -41,16 +52,35 @@ public class ForgotPasswordController {
 
         // 跳转回主界面
         try {
-            System.out.println("Attempting to load Main.fxml...");
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml")); // 假设主界面的 FXML 文件路径是 "/fxml/login.fxml"
+            System.out.println("Attempting to load login.fxml...");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml")); // 假设登录界面的 FXML 文件路径是 "/fxml/login.fxml"
             Parent root = loader.load();
-            System.out.println("Main.fxml loaded successfully.");
+            System.out.println("login.fxml loaded successfully.");
 
             Stage stage = (Stage) accountField.getScene().getWindow();
             stage.setScene(new Scene(root));
-            System.out.println("Scene switched to main page.");
+            System.out.println("Scene switched to login page.");
         } catch (Exception e) {
-            System.out.println("Error switching to main page: " + e.getMessage());
+            System.out.println("Error switching to login page: " + e.getMessage());
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onBackAction() {
+        System.out.println("Back button clicked.");
+
+        try {
+            System.out.println("Attempting to load login.fxml...");
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/login.fxml")); // 假设登录界面的 FXML 文件路径是 "/fxml/login.fxml"
+            Parent root = loader.load();
+            System.out.println("login.fxml loaded successfully.");
+
+            Stage stage = (Stage) accountField.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            System.out.println("Scene switched to login page.");
+        } catch (Exception e) {
+            System.out.println("Error switching to login page: " + e.getMessage());
             e.printStackTrace();
         }
     }
