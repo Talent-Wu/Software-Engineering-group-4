@@ -1,65 +1,33 @@
 package controller;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Hyperlink;
-import javafx.stage.Stage;
-
-import java.util.Objects;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
+import utils.StageContainer;
 
 public class LoginController {
 
     @FXML
-    private Hyperlink signUpLink; // 引用FXML中的Sign Up链接
+    public TextField name;
     @FXML
-    private Hyperlink forgotPasswordLink; // 引用FXML中的Forgot Password链接
-
+    public TextField email;
     @FXML
-    public void onSignUpAction() { // 处理Sign Up链接的点击事件
-        try {
-            Parent signUpRoot = FXMLLoader.load(getClass().getResource("/fxml/SignUp.fxml"));
-            Stage currentStage = (Stage) signUpLink.getScene().getWindow(); // 通过链接获取窗口
+    public TextField password;
+    @FXML
+    public Label tip;
 
-            Scene newScene = new Scene(signUpRoot, 800, 600);
-            newScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
-
-            currentStage.setScene(newScene);
-            currentStage.setTitle("用户注册");
-        } catch (Exception e) {
-            System.out.println("无法加载注册页面: " + e.getMessage());
-        }
+    public LoginController() {
     }
 
     @FXML
-    public void onForgotPasswordAction() { // 处理Forgot Password链接的点击事件
-        try {
-            Parent forgotPasswordRoot = FXMLLoader.load(getClass().getResource("/fxml/ForgotPassword.fxml"));
-            Stage currentStage = (Stage) forgotPasswordLink.getScene().getWindow(); // 通过链接获取窗口
-
-            Scene newScene = new Scene(forgotPasswordRoot, 800, 600);
-            newScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
-
-            currentStage.setScene(newScene);
-            currentStage.setTitle("忘记密码");
-        } catch (Exception e) {
-            System.out.println("无法加载忘记密码页面: " + e.getMessage());
-        }
+    public void onLogin(MouseEvent mouseEvent) {
+        String name = this.name.getText();
+        String password = this.password.getText();
+        StageContainer.switchStage("home");
     }
-    @FXML
-    public void handleLogin() { // 处理Forgot Password链接的点击事件
-        try {
-            Parent forgotPasswordRoot = FXMLLoader.load(Objects.requireNonNull(getClass().getResource("/fxml/Home.fxml")));
-            Stage currentStage = (Stage) forgotPasswordLink.getScene().getWindow(); // 通过链接获取窗口
 
-            Scene newScene = new Scene(forgotPasswordRoot, 800, 600);
-            newScene.getStylesheets().add(getClass().getResource("/styles.css").toExternalForm());
-
-            currentStage.setScene(newScene);
-            currentStage.setTitle("home");
-        } catch (Exception e) {
-            System.out.println("无法加载home: " + e.getMessage());
-        }
+    public void onSignUp(MouseEvent mouseEvent) {
+        StageContainer.switchStage("signup");
     }
 }
