@@ -1,4 +1,5 @@
 # Software-Engineering-group-4
+Final Project
 
 # AI-Empowered Personal Finance Tracker
 
@@ -13,7 +14,7 @@ AI-Empowered Personal Finance Tracker is a desktop application developed for com
 Built using Agile methodology, this application combines AI automation with human validation to deliver reliable financial insights while maintaining data privacy.
 
 ## Software Architecture
-
+<!-- Software architecture diagram or description would be placed here -->
 
 ## Installation
 1. Ensure **OpenJDK 24** or later is installed:  
