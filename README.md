@@ -34,37 +34,5 @@ Built using the Agile methodology, this application combines AI automation with 
 
 ## Team Roles and Responsibilities
 
-### Login Module
-**Lead:** Yibo Yang
-**Responsibilities:**
-- Develop the user authentication system.
-- Implement the registration interface.
-- Implement the login interface.
-- Implement the password recovery interface.
-- Validate local data security and session management.
-**GitHub Branch:** `login`
 
-### Main Interface Module
-**Lead:** YuXing Wu, Xiaoyang Guo, Yihan Luo, Yuhong Zong
-**Sub-Tasks:**
-1. **Transaction Input Panel:**
-   - Develop the manual entry functionality.
-   - Integrate the CSV/JSON file auto-import parser.
-2. **AI Classification & Insights:**
-   - Deploy the transaction classification AI model.
-   - Visualize spending patterns.
-3. **Budget Forecast Dashboard:**
-   - Generate monthly budget recommendations based on AI analysis.
-   - Display savings goals and cost-saving strategies.
-4. **Localization Rules:**
-   - Configure regional spending habits (e.g., adjustments for the Lunar New Year).
-   - Implement scenario-specific validations (e.g., for WeChat red envelope transactions).
-**GitHub Branch:** `Main-Interface`
-
-### User Settings & Documentation Module
-**Lead:** Yuyang Lu
-**Responsibilities:**
-- Develop the user profile editing functionality.
-- Write the user manual and built-in help documentation.
-- Generate test datasets and validate data consistency.
 **GitHub Branch:** `User-Information`
