@@ -1,6 +1,6 @@
-import utils.StageContainer;
 import javafx.application.Application;
 import javafx.stage.Stage;
+import utils.StageContainer;
 
 /**
  * Application launcher class

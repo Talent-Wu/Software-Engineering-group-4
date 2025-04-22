@@ -12,6 +12,15 @@
     -fx-padding: 10px;
     -fx-font-size: 14px;
 }
+
+#backButton {
+    -fx-background-color: transparent; /* 透明背景 */
+    -fx-border-color: transparent; /* 透明边框 */
+    -fx-text-fill: #007bff; /* 蓝色文本 */
+    -fx-padding: 5px; /* 内边距 */
+    -fx-cursor: hand; /* 鼠标悬停时的光标样式 */
+}
+
 .login-button {
     -fx-background-color: #007acc;
     -fx-background-radius: 5px;
@@ -39,10 +48,11 @@
     -fx-pref-width: 130px;
 }
 .image-view:hover {
-    -fx-border-style: solid;
-    -fx-border-color: #007bff;
-    -fx-border-width: 2px;
+    -fx-effect: innershadow(gaussian, #039be5, 10, 0.5, 0, 0);
     -fx-cursor: hand;
+    -fx-scale-x: 1.05;
+    -fx-scale-y: 1.05;
+    -fx-transition: all 0.3s;
 }
 .grid-icon {
     -fx-background-repeat: no-repeat;
@@ -50,4 +60,23 @@
     -fx-background-size: cover;
     -fx-pref-width: 60px;
     -fx-pref-height: 60px;
+}
+
+.bottom-border {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent #000000 transparent;
+    -fx-border-width: 0 0 1 0;
+    -fx-padding: 0 0 3 0;
+}
+
+.font30 {
+    -fx-font-size: 30px;
+}
+
+.p20 {
+    -fx-padding: 20px;
+}
+ProgressBar {
+    -fx-accent: #ff0000;
+    -fx-pref-height: 24px;
 }

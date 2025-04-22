@@ -18,17 +18,19 @@ public class StageContainer {
     static {
         fxml2Title.put("login", "Login");
         fxml2Title.put("signup", "Sign Up");
-        fxml2Title.put("home", "Home");
-        fxml2Title.put("writing", "Writing");
+        fxml2Title.put("desktop", "Desktop");
+        fxml2Title.put("inputForm", "Writing");
+        fxml2Title.put("income", "Income");
     }
+
     /**
      * Store all stage
      */
-    private static Stack<Stage> stack = new Stack<>();
+    private static Stack<Stage> stages = new Stack<>();
 
-    private static String getTitle(String fxml){
+    private static String getTitle(String fxml) {
         String title = fxml2Title.get(fxml);
-        if(title == null) {
+        if (title == null) {
             System.out.println("no title for " + fxml);
             return "Untitled";
         } else {
@@ -42,19 +44,22 @@ public class StageContainer {
     public static void switchStage(String fxml) {
         switchStage(getTitle(fxml), fxml, true);
     }
-    public static void switchStage(String title, String fxml, boolean removeParent) {
+
+    public static void switchStage(String title, String fxml, boolean closeParent) {
         try {
             Parent panel = FXMLLoader.load(StageContainer.class.getResource("/fxml/" + fxml + ".fxml"));
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(panel));
+            stage.setX(2000); // TODO TEST
             stage.show();
 
-            if (removeParent && !stack.isEmpty()) {
-                Stage parent = stack.pop();
+            if (closeParent && !stages.isEmpty()) {
+                Stage parent = stages.pop();
                 parent.close();
             }
-            stack.push(stage);
+
+            stages.push(stage);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
