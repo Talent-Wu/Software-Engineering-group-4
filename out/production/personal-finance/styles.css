@@ -19,6 +19,15 @@
     -fx-font-size: 14px;
     -fx-padding: 10px 20px;
 }
+
+#backButton {
+    -fx-background-color: transparent; /* 透明背景 */
+    -fx-border-color: transparent; /* 透明边框 */
+    -fx-text-fill: #007bff; /* 蓝色文本 */
+    -fx-padding: 5px; /* 内边距 */
+    -fx-cursor: hand; /* 鼠标悬停时的光标样式 */
+}
+
 .login-button:hover {
     -fx-background-color: #005fa3;
 }
