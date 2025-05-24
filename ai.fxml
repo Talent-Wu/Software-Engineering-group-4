@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:controller="controller.AIController" prefHeight="600.0" prefWidth="650.0" spacing="15.0" styleClass="ai" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label styleClass="title" text="AI Proposal" />
+      <ScrollPane prefHeight="293.0" prefWidth="720.0" styleClass="msg-area">
+         <content>
+            <VBox prefWidth="549.0" spacing="10.0" fx:id="chatContainer">
+               <HBox prefWidth="497.0" styleClass="left">
+                  <Label maxWidth="415" text="I am a AI financial expert helper" wrapText="true"/>
+               </HBox>
+               <!--<HBox alignment="CENTER_RIGHT" layoutX="10.0" layoutY="10.0" prefWidth="497.0" styleClass="right">
+                  <Label maxWidth="415.0" wrapText="true"/>
+               </HBox>-->
+            </VBox>
+         </content>
+      </ScrollPane>
+      <Label text="For example, I will have a meal on May 8th, 2025, which will cost me 200 yuan" />
+      <TextArea prefHeight="103.0" prefWidth="720.0" fx:id="userInput"/>
+      <AnchorPane prefHeight="37.0" prefWidth="540.0">
+         <Button onMouseClicked="#onSubmit"
+                 styleClass="small-btn"
+                 text="Submit"
+                 AnchorPane.rightAnchor="0.0"/>
+      </AnchorPane>
+   </children>
+</VBox>
