@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="650.0" spacing="10" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.InputFormController">
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+        </columnConstraints>
+        <HBox alignment="CENTER_LEFT">
+            <RadioButton fx:id="incomeRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_income.png" />
+                </ImageView>
+                <Label>Income</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1">
+            <RadioButton fx:id="expenditureRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_outcome.png" />
+                </ImageView>
+                <Label>Expenditure</Label>
+            </VBox>
+        </HBox>
+      <rowConstraints>
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+
+    <Separator orientation="HORIZONTAL" />
+
+    <GridPane hgap="10" vgap="10">
+        <columnConstraints>
+            <ColumnConstraints />
+            <ColumnConstraints />
+            <ColumnConstraints />
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints />
+            <RowConstraints />
+            <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+        </rowConstraints>
+        <HBox alignment="CENTER_LEFT" GridPane.rowIndex="2">
+            <RadioButton fx:id="petRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_pet.png" />
+                </ImageView>
+                <Label>Pet</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <RadioButton fx:id="phoneRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_phone.png" />
+                </ImageView>
+                <Label>Phone</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="2">
+            <RadioButton fx:id="monetaryRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_money.png" />
+                </ImageView>
+                <Label>Monetary</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.rowIndex="3">
+            <RadioButton fx:id="snacksRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_lingshi.png" />
+                </ImageView>
+                <Label>Snacks</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="3">
+            <RadioButton fx:id="tobaccoRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_smoke.png" />
+                </ImageView>
+                <Label>Tobacco</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="3">
+            <RadioButton fx:id="dailyRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_riyong.png" />
+                </ImageView>
+                <Label>Daily</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.rowIndex="4">
+            <RadioButton fx:id="cosmeticsRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_huazhuang.png" />
+                </ImageView>
+                <Label>Cosmetics</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="1" GridPane.rowIndex="4">
+            <RadioButton fx:id="horticultureRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_garden.png" />
+                </ImageView>
+                <Label>Horticulture</Label>
+            </VBox>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" GridPane.columnIndex="2" GridPane.rowIndex="4">
+            <RadioButton fx:id="mealRadioButton" />
+            <VBox alignment="CENTER">
+                <ImageView fitHeight="70" fitWidth="70">
+                    <Image url="@/assets/icon_meal.png" />
+                </ImageView>
+                <Label>Meal</Label>
+            </VBox>
+        </HBox>
+    </GridPane>
+
+    <HBox spacing="10">
+        <Label>Amount($): </Label>
+        <TextField fx:id="amount" promptText="0.0" styleClass="bottom-border" />
+    </HBox>
+
+    <HBox spacing="10">
+        <Label text="Company:" />
+        <TextField fx:id="company" promptText="xxx" styleClass="bottom-border"/>
+    </HBox>
+
+    <HBox spacing="10">
+        <Label>AI Helper: </Label>
+        <TextArea prefHeight="60.0" prefRowCount="3" prefWidth="543.0" promptText="收入+金额+类别+公司" fx:id="aiInput"/>
+    </HBox>
+
+    <HBox alignment="CENTER_RIGHT" spacing="10.0">
+        <Button onMouseClicked="#aiAnalysis" styleClass="small-btn" text="AI Analysis" AnchorPane.bottomAnchor="1.0" AnchorPane.rightAnchor="1.0" />
+      <Button onMouseClicked="#submit" styleClass="small-btn" text="Submit" />
+    </HBox>
+
+    <padding>
+        <Insets bottom="10.0" left="30.0" right="10.0" top="10.0" />
+    </padding>
+</VBox>
