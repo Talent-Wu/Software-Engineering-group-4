@@ -6,15 +6,15 @@
 <BorderPane fx:id="borderPane" prefHeight="600.0" prefWidth="800.0" stylesheets="@/styles.css"
             xmlns="http://javafx.com/javafx/19"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:controller="controller.DesktopController">
+            fx:controller="controller.LayoutController">
    <left>
        <VBox alignment="CENTER" prefWidth="150.0" spacing="20" style="-fx-background-color: #e0e0e0;" BorderPane.alignment="CENTER">
-           <Button styleClass="menu-item" text="Home" onMouseClicked="#switchHome"/>
+           <Button styleClass="menu-item" text="Home" onMouseClicked="#switchHome" fx:id="homeBtn"/>
            <Button styleClass="menu-item" text="Income" onMouseClicked="#switchIncome"/>
            <Button styleClass="menu-item" text="Expenses" onMouseClicked="#switchExpense"/>
            <Button styleClass="menu-item" text="Future" onMouseClicked="#switchFuture"/>
-           <Button styleClass="menu-item" text="MyWallet" onMouseClicked="#switchWallet"/>
-           <Button styleClass="menu-item" text="Personal Info" onMouseClicked="#switchProfile"/>
+           <Button styleClass="menu-item" text="My Wallet" onMouseClicked="#switchWallet"/>
+           <Button styleClass="menu-item" text="Profile" onMouseClicked="#switchProfile"/>
        </VBox>
    </left>
 
