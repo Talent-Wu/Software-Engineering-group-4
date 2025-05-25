@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox styleClass="bg1-img" prefHeight="600.0" prefWidth="650.0" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.FutureController">
+    <HBox prefHeight="600.0" prefWidth="650.0" spacing="20">
+        <VBox prefHeight="600.0" prefWidth="321.0" spacing="150.0" styleClass="p20">
+            <VBox spacing="10.0">
+                <Label styleClass="font30">Goals</Label>
+                <Label fx:id="goalLabel">Amount: 123</Label>
+                <StackPane>
+                    <ProgressBar fx:id="progressBar" prefWidth="224.0" progress="0.0" styleClass="red-progress" />
+                    <Label fx:id="completeGoalPercent" text="50%" />
+                </StackPane>
+                <HBox alignment="BOTTOM_CENTER" spacing="10">
+                    <Button fx:id="setTargetButton" onMouseClicked="#setTarget" styleClass="small-btn" text="Set Target" />
+                    <Button fx:id="resetButton" onMouseClicked="#reset" styleClass="small-btn" text="Reset" />
+                </HBox>
+            </VBox>
+            <VBox spacing="10.0">
+                <Label styleClass="font30">Loans</Label>
+                <GridPane hgap="10" vgap="10">
+                    <Label text="Commercial: 1000" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+                    <Label text="Repaid: 300" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+                    <Label text="Remaining: 700" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+                    <Label text="Interest rate: 4.2%" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                    <Label text="Outstanding amount: 1234" GridPane.columnSpan="2" GridPane.rowIndex="2" />
+                    <StackPane GridPane.columnSpan="2" GridPane.rowIndex="3">
+                        <ProgressBar progress="0.7" style="-fx-pref-width: 250px;" styleClass="red-progress" />
+                        <Label text="70%" />
+                    </StackPane>
+                </GridPane>
+            </VBox>
+        </VBox>
+        <VBox spacing="5.0" styleClass="p20">
+            <Label styleClass="font30">Wishlist</Label>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="10.0">
+                <TextField fx:id="wishName" prefHeight="26.0" prefWidth="203.0" promptText="wish.." />
+                <TextField fx:id="wishAmount" prefHeight="26.0" prefWidth="88.0" promptText="amount.." />
+                <Button onMouseClicked="#addWishlist" styleClass="small-btn" text="+" />
+            </HBox>
+            <HBox alignment="CENTER" spacing="10.0">
+                <Button fx:id="moveUpButton" onMouseClicked="#moveWishUp" styleClass="small-btn" text="Move Up" />
+                <Button fx:id="moveDownButton" onMouseClicked="#moveWishDown" styleClass="small-btn" text="Move Down" />
+            </HBox>
+            <TableView fx:id="table" prefHeight="600.0" prefWidth="400.0" styleClass="custom-table">
+                <columns>
+                    <TableColumn fx:id="nameColumn" prefWidth="180.0" text="Wish" />
+                    <TableColumn fx:id="amountColumn" prefWidth="72.57145690917969" text="Amount" />
+                    <TableColumn fx:id="completeColumn" prefWidth="90.0" text="Complete" />
+                </columns>
+            </TableView>
+        </VBox>
+    </HBox>
+    <Button fx:id="exitButton" prefWidth="180.0" text="Return to my account" />
+</VBox>
