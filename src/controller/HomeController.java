@@ -35,8 +35,28 @@ public class HomeController {
             CalendarController calendarController = loader.getController();
             calendarController.setHomeController(this);
 
+            // 调用loadFestivals方法动态加载节日内容
+            loadFestivals();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+    private void loadFestivals() {
+        // 获取当前年月（格式：yyyy-MM）
+        String yearMonth = java.time.YearMonth.now().toString();
+
+        // 从文件读取节日列表
+        List<String> festivals = FestivalUtil.read(yearMonth);
+
+        // 获取festivalContent容器
+        VBox festivalContent = (VBox) festivalList.lookup("#festivalContent");
+        for (String festival : festivals) {
+            Label label = new Label(festival);
+            label.setStyle("-fx-text-fill: #666; -fx-font-size: 13px; -fx-padding: 3px 0;");
+            // 设置每个节日标签的文字水平居中
+            label.setTextAlignment(TextAlignment.CENTER);
+            festivalContent.getChildren().add(label);
         }
     }
 
@@ -61,10 +81,10 @@ public class HomeController {
                     String category = split[2];
                     double amount = Double.parseDouble(split[3]);
                     String time = split[4];
-                    if(split[1].equalsIgnoreCase("expenditure")) {
+                    if (split[1].equalsIgnoreCase("expenditure")) {
                         amount *= -1;
                     }
-                    lines.add(amount + ","+category+","+company+","+time);
+                    lines.add(amount + "," + category + "," + company + "," + time);
                 }
 
                 String filepath = "data/" + DataUtil.currentUser.getUsername() + "/wallet.csv";
@@ -81,7 +101,6 @@ public class HomeController {
         }
     }
 
-
     public void navigateToAI(MouseEvent mouseEvent) {
         layoutController.loadFXML("ai");
     }
@@ -90,13 +109,13 @@ public class HomeController {
         layoutController.loadFXML("inputForm");
     }
 
-
     public void setLayoutController(LayoutController layoutController) {
         this.layoutController = layoutController;
     }
 
     /**
      * update festival list
+     *
      * @param yearMonth 2025-05
      */
     public void updateFestivalList(String yearMonth) {

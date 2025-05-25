@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="600.0" prefWidth="650.0" styleClass="bg-img" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
+<VBox prefHeight="600.0" prefWidth="650.0" styleClass="bg2-img" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.HomeController">
 
     <HBox alignment="CENTER" prefHeight="200.0" spacing="70.0">
         <ImageView fitHeight="120" fitWidth="120" onMouseClicked="#switchWritingPane" styleClass="image-view">
@@ -21,6 +21,7 @@
             <Image url="@/assets/home_ai.png" />
         </ImageView>
     </HBox>
+
     <HBox spacing="50" style="-fx-padding: 10px;">
         <children>
             <HBox spacing="10">
@@ -36,14 +37,42 @@
                 <Label fx:id="percent" style="-fx-font-weight: bold;-fx-text-fill: #5cc055" text="+0.07%" />
             </HBox>
         </children>
-      <VBox.margin>
-         <Insets left="50.0" />
-      </VBox.margin>
+        <VBox.margin>
+            <Insets left="50.0" />
+        </VBox.margin>
     </HBox>
 
     <HBox>
         <StackPane fx:id="calendarPane" prefHeight="360.0" prefWidth="520.0" />
-        <VBox fx:id="festivalList" alignment="CENTER" prefHeight="360.0" prefWidth="122.0" style="-fx-background-color: rgba(255,236,121,0.8)">
+
+        <!-- 动态节日列表 -->
+        <VBox fx:id="festivalList"
+              alignment="CENTER"
+              prefHeight="360.0"
+              prefWidth="122.0"
+              style="-fx-background-color: white;
+                     -fx-background-radius: 10px;
+                     -fx-padding: 10px;
+                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 10, 0, 0, 5);">
+
+            <!-- 标题 -->
+            <Label text="本月节日"
+                   style="-fx-font-size: 14px;
+                          -fx-font-weight: bold;
+                          -fx-text-fill: #333;
+                          -fx-padding: 0 0 8px 0;
+                          -fx-text-alignment: center;
+                          -fx-alignment: center;
+                          -fx-graphic-text-gap: 0;
+                          -fx-wrap-text: true;
+                          -fx-max-width: 100%;" />
+
+            <!-- 动态加载的节日内容 -->
+            <VBox fx:id="festivalContent"
+                  spacing="5"
+                  style="-fx-padding: 0px 20px;">
+                <!-- 节日标签将通过代码动态添加 -->
+            </VBox>
 
         </VBox>
 
