@@ -25,6 +25,30 @@ public class DataUtil {
         return sdf.format(new Date());
     }
 
+    // 保存钱包记录，包括收入和支出
+    public static void saveWallet(String type, String category, String amount, String company) {
+        String filepath = "data/" + currentUser.getUsername() + "/wallet.csv";
+        try (FileWriter writer = new FileWriter(filepath, true)) {
+            String time = getCurrentTime();
+            if (type.equals("income")) {
+                writer.write(amount + "," + category + "," + company + "," + time + "\n");
+            } else {
+                writer.write("-" + amount + "," + category + "," + company + "," + time + "\n");
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // 清空钱包记录
+    public static void clearWallet() {
+        String filepath = "data/" + currentUser.getUsername() + "/wallet.csv";
+        try (FileWriter writer = new FileWriter(filepath)) {
+            writer.write("Amount,Category,Company,Time\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     // 保存愿望清单
     public static void saveWish(String name, String amount) {
@@ -500,6 +524,36 @@ public class DataUtil {
         }
         System.out.println("No associated records were found: " + username + " <-> " + associatedUsername);
         return false;
+    }
+
+    // 读取钱包记录
+    public static List<Wallet> readWallet() {
+        String filepath = "data/" + currentUser.getUsername() + "/wallet.csv";
+
+        List<Wallet> list = new ArrayList<>();
+        File file = new File(filepath);
+        if (file.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+                int lineNumber = 0;
+                while ((line = reader.readLine()) != null) {
+                    if (lineNumber > 0) {
+                        String[] split = line.split(",");
+                        if (split.length >= 4) {
+                            double amount = Double.parseDouble(split[0]);
+                            String category = split[1];
+                            String company = split[2];
+                            String time = split[3];
+                            list.add(new Wallet(category, amount, company, time));
+                        }
+                    }
+                    lineNumber++;
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
     }
 
     // 读取愿望清单
