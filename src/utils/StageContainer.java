@@ -18,10 +18,9 @@ public class StageContainer {
     static {
         fxml2Title.put("login", "Login");
         fxml2Title.put("signup", "Sign Up");
-        fxml2Title.put("layout", "Desktop");
+        fxml2Title.put("desktop", "Desktop");
         fxml2Title.put("inputForm", "Writing");
         fxml2Title.put("income", "Income");
-        fxml2Title.put("forgotPassword", "Forgot password");
     }
 
     /**
@@ -52,8 +51,7 @@ public class StageContainer {
             Stage stage = new Stage();
             stage.setTitle(title);
             stage.setScene(new Scene(panel));
-            stage.setResizable(false);
-//            stage.setX(2000); // TODO TEST
+            stage.setX(2000); // TODO TEST
             stage.show();
 
             if (closeParent && !stages.isEmpty()) {
