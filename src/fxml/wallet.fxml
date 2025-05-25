@@ -11,7 +11,7 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox prefHeight="600.0" prefWidth="650.0" styleClass="wallet" stylesheets="@../styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WalletController">
+<VBox prefHeight="600.0" prefWidth="650.0" styleClass="bg3-img" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WalletController">
 
     <HBox spacing="20.0" styleClass="p20">
         <VBox alignment="CENTER" prefWidth="250.0" styleClass="round">
@@ -27,7 +27,7 @@
             <GridPane hgap="10" prefHeight="150.0" vgap="10">
                 <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
                     <ImageView fitHeight="24" fitWidth="24">
-                        <Image url="@/assets/icon_1.png" />
+                        <Image url="@/assets/icon_7.png" />
                     </ImageView>
                     <Label text="Industrial and Commercial Bank of China" />
                 </HBox>
@@ -35,7 +35,7 @@
 
                 <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
                     <ImageView fitHeight="24" fitWidth="24">
-                        <Image url="@/assets/icon_2.png" />
+                        <Image url="@/assets/icon_8.png" />
                     </ImageView>
                     <Label text="Bank of China" />
                 </HBox>
@@ -43,7 +43,7 @@
 
                 <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
                     <ImageView fitHeight="24" fitWidth="24">
-                        <Image url="@/assets/icon_3.png" />
+                        <Image url="@/assets/icon_9.png" />
                     </ImageView>
                     <Label text="China Construction Bank" />
                 </HBox>
@@ -81,7 +81,7 @@
                     </rowConstraints>
                     <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
                         <ImageView fitHeight="24" fitWidth="24">
-                            <Image url="@/assets/icon_1.png" />
+                            <Image url="@/assets/icon_4.png" />
                         </ImageView>
                         <Label text="JD White Stripe" />
                     </HBox>
@@ -89,7 +89,7 @@
 
                     <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
                         <ImageView fitHeight="24" fitWidth="24">
-                            <Image url="@/assets/icon_2.png" />
+                            <Image url="@/assets/icon_5.png" />
                         </ImageView>
                         <Label text="Meituan" />
                     </HBox>
@@ -97,9 +97,9 @@
 
                     <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
                         <ImageView fitHeight="24" fitWidth="24">
-                            <Image url="@/assets/icon_3.png" />
+                            <Image url="@/assets/icon_6.png" />
                         </ImageView>
-                        <Label text="McDonald's" />
+                        <Label text="Huabei" />
                     </HBox>
                     <Label fx:id="expenses3" text="34" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                   <VBox.margin>
@@ -132,7 +132,7 @@
 
                       <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
                           <ImageView fitHeight="24" fitWidth="24">
-                              <Image url="@/assets/icon_2.png" />
+                              <Image url="@/assets/icon_1.png" />
                           </ImageView>
                           <Label text="Alipay" />
                       </HBox>
