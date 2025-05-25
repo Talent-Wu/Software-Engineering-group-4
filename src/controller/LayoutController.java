@@ -6,6 +6,7 @@ import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.BorderPane;
+import utils.StageContainer;
 
 import java.io.IOException;
 
@@ -44,7 +45,6 @@ public class LayoutController {
         loadFXML("profile");
     }
 
-
     /**
      * A method to load FXML file and set center of home's borderPane
      */
@@ -56,6 +56,9 @@ public class LayoutController {
             if (fxmlName.equals("home")) {
                 HomeController controller = loader.getController();
                 controller.setLayoutController(this);
+            } else if (fxmlName.equals("profile")) {
+                ProfileController profileController = loader.getController();
+                StageContainer.setController("profile", profileController);
             }
 
             borderPane.setCenter(subPage);
@@ -63,5 +66,4 @@ public class LayoutController {
             e.printStackTrace();
         }
     }
-
 }
