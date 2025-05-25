@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="650.0" styleClass="bg3-img" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WalletController">
+
+    <HBox spacing="20.0" styleClass="p20">
+        <VBox alignment="CENTER" prefWidth="250.0" styleClass="round">
+         <Label fx:id="income" style="-fx-font-size: 36px; -fx-background-color: #269546; -fx-text-fill: white; -fx-background-radius: 10px; -fx-padding: 5px 8px;" text="1234" />
+         <Label style="-fx-font-size: 14px;" text="Income" />
+         <Label prefHeight="30.0" text=" " />
+         <Label fx:id="expenses" layoutX="21.0" layoutY="40.0" style="-fx-font-size: 36px; -fx-text-fill: white; -fx-background-color: #e23e31; -fx-background-radius: 10px; -fx-padding: 5px 8px;" text="1234" />
+         <Label layoutX="21.0" layoutY="21.0" style="-fx-font-size: 14px;" text="Expenses" />
+        </VBox>
+
+        <VBox prefHeight="239.0" prefWidth="371.0" styleClass="round">
+         <Label styleClass="title1" text="Savings Card" />
+            <GridPane hgap="10" prefHeight="150.0" vgap="10">
+                <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                    <ImageView fitHeight="24" fitWidth="24">
+                        <Image url="@/assets/icon_7.png" />
+                    </ImageView>
+                    <Label text="Industrial and Commercial Bank of China" />
+                </HBox>
+                <Label fx:id="income1" prefHeight="15.0" prefWidth="86.0" text="1000" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                    <ImageView fitHeight="24" fitWidth="24">
+                        <Image url="@/assets/icon_8.png" />
+                    </ImageView>
+                    <Label text="Bank of China" />
+                </HBox>
+                <Label fx:id="income2" text="1000" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                    <ImageView fitHeight="24" fitWidth="24">
+                        <Image url="@/assets/icon_9.png" />
+                    </ImageView>
+                    <Label text="China Construction Bank" />
+                </HBox>
+                <Label fx:id="income3" text="34" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <columnConstraints>
+                   <ColumnConstraints percentWidth="70.0" />
+                   <ColumnConstraints percentWidth="30.0" />
+                </columnConstraints>
+                <rowConstraints>
+                   <RowConstraints percentHeight="33.0" />
+                   <RowConstraints percentHeight="33.0" />
+                   <RowConstraints percentHeight="33.0" />
+                   <RowConstraints maxHeight="0.0" minHeight="0.0" prefHeight="0.0" />
+                </rowConstraints>
+            <VBox.margin>
+               <Insets top="20.0" />
+            </VBox.margin>
+            </GridPane>
+        </VBox>
+    </HBox>
+   <HBox layoutX="10.0" layoutY="10.0" spacing="20.0" styleClass="p20">
+      <children>
+         <VBox prefHeight="200.0" prefWidth="371.0" styleClass="round">
+            <children>
+               <Label styleClass="title1" text="Pending Repayments" />
+                <GridPane hgap="10" prefHeight="150.0" vgap="10">
+                    <columnConstraints>
+                        <ColumnConstraints percentWidth="70.0" />
+                        <ColumnConstraints percentWidth="30.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                        <RowConstraints percentHeight="33.0" />
+                        <RowConstraints percentHeight="33.0" />
+                        <RowConstraints percentHeight="33.0" />
+                    </rowConstraints>
+                    <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <ImageView fitHeight="24" fitWidth="24">
+                            <Image url="@/assets/icon_4.png" />
+                        </ImageView>
+                        <Label text="JD White Stripe" />
+                    </HBox>
+                    <Label fx:id="expenses1" prefHeight="15.0" prefWidth="86.0" text="1000" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                    <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <ImageView fitHeight="24" fitWidth="24">
+                            <Image url="@/assets/icon_5.png" />
+                        </ImageView>
+                        <Label text="Meituan" />
+                    </HBox>
+                    <Label fx:id="expenses2" text="1000" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                    <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <ImageView fitHeight="24" fitWidth="24">
+                            <Image url="@/assets/icon_6.png" />
+                        </ImageView>
+                        <Label text="Huabei" />
+                    </HBox>
+                    <Label fx:id="expenses3" text="34" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <VBox.margin>
+                     <Insets top="20.0" />
+                  </VBox.margin>
+                </GridPane>
+            </children>
+         </VBox>
+         <VBox layoutX="30.0" layoutY="30.0" prefHeight="200.0" prefWidth="371.0" styleClass="round">
+            <children>
+               <Label styleClass="title1" text="Other Assets" />
+               <GridPane hgap="10" prefHeight="150.0" vgap="10">
+                   <columnConstraints>
+                       <ColumnConstraints percentWidth="70.0" />
+                       <ColumnConstraints percentWidth="30.0" />
+                   </columnConstraints>
+                   <rowConstraints>
+                       <RowConstraints percentHeight="33.0" />
+                       <RowConstraints percentHeight="33.0" />
+                       <RowConstraints percentHeight="33.0" />
+                   </rowConstraints>
+                  <children>
+                      <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                          <ImageView fitHeight="24" fitWidth="24">
+                              <Image url="@/assets/icon_2.png" />
+                          </ImageView>
+                          <Label text="WeChat Pay" />
+                      </HBox>
+                     <Label fx:id="income4" prefHeight="15.0" prefWidth="86.0" text="1000" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+                      <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                          <ImageView fitHeight="24" fitWidth="24">
+                              <Image url="@/assets/icon_1.png" />
+                          </ImageView>
+                          <Label text="Alipay" />
+                      </HBox>
+                     <Label fx:id="income5" text="1000" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+                      <HBox alignment="CENTER_LEFT" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                          <ImageView fitHeight="24" fitWidth="24">
+                              <Image url="@/assets/icon_3.png" />
+                          </ImageView>
+                          <Label text="Apple Pay" />
+                      </HBox>
+                     <Label fx:id="income6" text="34" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  </children>
+                  <VBox.margin>
+                     <Insets top="20.0" />
+                  </VBox.margin>
+               </GridPane>
+            </children>
+         </VBox>
+      </children>
+   </HBox>
+   <HBox alignment="CENTER_RIGHT" prefHeight="50.0" prefWidth="200.0">
+      <children>
+         <Button onMouseClicked="#clear" styleClass="large-btn" stylesheets="@../styles.css" text="Clear Wallet" />
+      </children>
+      <padding>
+         <Insets right="20.0" />
+      </padding>
+   </HBox>
+</VBox>
