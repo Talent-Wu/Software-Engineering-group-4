@@ -14,6 +14,7 @@ import java.util.*;
 public class StageContainer {
     private static final String DB_PATH = "";
     private static final Map<String, String> fxml2Title = new HashMap<>();
+    private static Map<String, Object> controllers = new HashMap<>();
 
     static {
         fxml2Title.put("login", "Login");
@@ -65,6 +66,10 @@ public class StageContainer {
         }
     }
 
+    public static void loadUserFXML(String fxmlName, String customTitle, boolean closeParent) {
+        String title = customTitle != null ? customTitle : getTitle(fxmlName);
+        switchStage(title, fxmlName, closeParent);
+    }
     /**
      * Save data to disk
      */
@@ -93,5 +98,13 @@ public class StageContainer {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void setController(String name, Object controller) {
+        controllers.put(name, controller);
+    }
+
+    public static Object getController(String name) {
+        return controllers.get(name);
     }
 }
