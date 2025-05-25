@@ -4,33 +4,33 @@ import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
+import javafx.scene.chart.PieChart;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
-import model.Wallet;
-import utils.DataUtil;
+import model.Income;
 
-public class IncomeController {
+import java.util.ArrayList;
+import java.util.List;
+
+public class ExpenseController {
 
     @FXML
     public TableView table;
+    public PieChart chart;
     @FXML
     public TableColumn nameColumn;
     @FXML
     public TableColumn amountColumn;
     @FXML
     public TableColumn deleteBtnColumn;
-    @FXML
-    public BarChart chart;
-    public TableColumn companyColumn;
 
-    private ObservableList<Wallet> data = FXCollections.observableArrayList();
+    private ObservableList<Income> data = FXCollections.observableArrayList();
 
     @FXML
     public void initialize() {
         // data binding
-        companyColumn.setCellValueFactory(new PropertyValueFactory<>("company"));
-        nameColumn.setCellValueFactory(new PropertyValueFactory<>("category"));
+        nameColumn.setCellValueFactory(new PropertyValueFactory<>("name"));
         amountColumn.setCellValueFactory(new PropertyValueFactory<>("amount"));
         table.setItems(data);
 
@@ -39,19 +39,20 @@ public class IncomeController {
 
     private void loadData() {
         data.clear();
-        data.addAll(DataUtil.readIncome());
+        List<Income> list = new ArrayList<>();
+        list.add(new Income("张三", 10));
+        list.add(new Income("李四", 90));
+        list.add(new Income("wa", 50));
+        data.addAll(list);
 
         initializeChartData();
     }
 
     private void initializeChartData() {
         chart.getData().clear();
-        javafx.scene.chart.XYChart.Series<String, Number> series = new javafx.scene.chart.XYChart.Series<>();
-        series.setName("Income ranking list");
-        for (Wallet income : data) {
-            series.getData().add(new javafx.scene.chart.XYChart.Data<>(income.getCategory(), income.getAmount()));
+        for (Income expense : data) {
+            chart.getData().add(new PieChart.Data(expense.getName(), expense.getAmount()));
         }
-        chart.getData().add(series);
     }
 
 }

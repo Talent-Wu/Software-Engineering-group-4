@@ -11,28 +11,33 @@
 <?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 
+<?import javafx.scene.control.CheckBox?>
 <StackPane prefHeight="600.0" prefWidth="800.0" stylesheets="@/styles.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.LoginController">
     <GridPane alignment="center" hgap="10.0" styleClass="login-container" vgap="10">
-<!--        <Label style="-fx-font-size: 32px; -fx-font-weight: bold; -fx-text-fill: #007acc; -fx-translate-y: -40px;" text="Person Finance Software" GridPane.columnIndex="0" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="0" />-->
-
-        <Label style="-fx-font-size: 16px;" text="Name" GridPane.columnIndex="0" GridPane.rowIndex="1" />
-        <TextField fx:id="name" promptText="Please input name.." styleClass="login-input" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+        <Label style="-fx-font-size: 16px;" text="Username" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="username" promptText="Please input username.." styleClass="login-input" GridPane.columnIndex="1" GridPane.rowIndex="1" />
 
         <Label style="-fx-font-size: 16px;" text="Password" GridPane.columnIndex="0" GridPane.rowIndex="2" />
-        <PasswordField fx:id="password" promptText="Please input password.." styleClass="login-input" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-        <Button alignment="center" onMouseClicked="#onLogin" prefHeight="23.0" styleClass="login-button" text="Login" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
+        <GridPane GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <PasswordField fx:id="passwordField" promptText="Please input password.." styleClass="login-input" />
+            <TextField fx:id="passwordTextField" visible="false" managed="false" promptText="Please input password.." styleClass="login-input" />
+        </GridPane>
+
+        <CheckBox fx:id="showPasswordCheckBox" text="Show Password" onAction="#togglePasswordVisibility" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+
+        <Button alignment="center" onMouseClicked="#onLogin" prefHeight="23.0" styleClass="large-btn" text="Login" GridPane.columnIndex="1" GridPane.columnSpan="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
             <GridPane.margin>
                 <Insets right="11.0" />
             </GridPane.margin>
         </Button>
-        <Hyperlink  styleClass="forget-password" text="Forgot password?" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
+        <Hyperlink fx:id="forgotPasswordLink" styleClass="forget-password" text="Forgot password?" onAction="#onForgotPasswordAction" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5"/>
 
-        <Label text="Create an account?" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+        <Label text="Create an account?" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6">
             <GridPane.margin>
                 <Insets right="61.0" />
             </GridPane.margin>
         </Label>
-        <Hyperlink onMouseClicked="#onSignUp" styleClass="forget-password" text="Sign Up" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="5" />
+        <Hyperlink onMouseClicked="#onSignUp" styleClass="forget-password" text="Sign Up" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="6" />
         <columnConstraints>
             <ColumnConstraints />
             <ColumnConstraints />
@@ -49,4 +54,3 @@
         </rowConstraints>
     </GridPane>
 </StackPane>
-
