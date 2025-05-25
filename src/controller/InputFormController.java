@@ -2,9 +2,11 @@ package controller;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.RadioButton;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.input.MouseEvent;
+import utils.AIHelper;
 import utils.DataUtil;
 import utils.Dialog;
 
@@ -23,6 +25,7 @@ public class InputFormController {
     public RadioButton petRadioButton;
     public TextField company;
     public TextField amount;
+    public TextArea aiInput;
 
     private ToggleGroup radioGroup1 = new ToggleGroup();
     private ToggleGroup radioGroup2 = new ToggleGroup();
@@ -62,5 +65,56 @@ public class InputFormController {
         company.clear();
         typeRadio.setSelected(false);
         categoryRadio.setSelected(false);
+    }
+
+    @FXML
+    public void aiAnalysis(MouseEvent mouseEvent) {
+        String result = AIHelper.parseContent(aiInput.getText());
+        System.out.println(result);
+        if("NO".equalsIgnoreCase(result)) {
+            Dialog.alert("Please provide detailed input");
+            return;
+        }
+
+        String[] split = result.split("#");
+        if (split[0].equalsIgnoreCase("income")){
+            incomeRadioButton.setSelected(true);
+        }else{
+            expenditureRadioButton.setSelected(true);
+        }
+
+        switch (split[2].toLowerCase()){
+            case "pet":
+                petRadioButton.setSelected(true);
+                break;
+            case "phone":
+                phoneRadioButton.setSelected(true);
+                break;
+            case "monetary":
+                monetaryRadioButton.setSelected(true);
+                break;
+            case "snacks":
+                snacksRadioButton.setSelected(true);
+                break;
+            case "tobacco":
+                tobaccoRadioButton.setSelected(true);
+                break;
+            case "daily":
+                dailyRadioButton.setSelected(true);
+                break;
+            case "cosmetics":
+                cosmeticsRadioButton.setSelected(true);
+                break;
+            case "horticulture":
+                horticultureRadioButton.setSelected(true);
+                break;
+            case "meal":
+                mealRadioButton.setSelected(true);
+                break;
+        }
+
+        amount.setText(split[1]);
+        company.setText(split[3]);
+
     }
 }

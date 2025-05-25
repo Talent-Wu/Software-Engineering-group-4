@@ -12,6 +12,7 @@
 <GridPane alignment="center" hgap="10.0" vgap="10.0"
           xmlns="http://javafx.com/javafx/19"
           xmlns:fx="http://javafx.com/fxml/1"
+          stylesheets="@/styles.css"
           fx:controller="controller.CalendarController">
     <VBox spacing="10.0" GridPane.columnIndex="0" GridPane.rowIndex="0">
         <Label fx:id="yearLabel" style="-fx-font-size: 24px; -fx-font-weight: bold;" />
@@ -35,8 +36,8 @@
             </rowConstraints>
         </GridPane>
         <HBox spacing="10.0">
-            <Button fx:id="previousMonthButton" text="Previous Month"  />
-            <Button fx:id="nextMonthButton" text="Next Month"  />
+            <Button fx:id="previousMonthButton" text="Previous Month" styleClass="small-btn" />
+            <Button fx:id="nextMonthButton" text="Next Month" styleClass="small-btn" />
         </HBox>
     </VBox>
 </GridPane>

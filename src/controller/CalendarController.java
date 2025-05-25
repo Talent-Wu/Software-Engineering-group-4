@@ -22,6 +22,7 @@ public class CalendarController {
     private Button nextMonthButton;
 
     private YearMonth currentYearMonth;
+    private HomeController homeController;
 
     @FXML
     public void initialize() {
@@ -31,11 +32,13 @@ public class CalendarController {
         previousMonthButton.setOnAction(event -> {
             currentYearMonth = currentYearMonth.minusMonths(1);
             updateCalendar();
+            homeController.updateFestivalList(currentYearMonth.toString());
         });
 
         nextMonthButton.setOnAction(event -> {
             currentYearMonth = currentYearMonth.plusMonths(1);
             updateCalendar();
+            homeController.updateFestivalList(currentYearMonth.toString());
         });
     }
 
@@ -68,5 +71,10 @@ public class CalendarController {
             GridPane.setConstraints(dateLabel, col, row);
             calendarGrid.getChildren().add(dateLabel);
         }
+    }
+
+    public void setHomeController(HomeController homeController) {
+        this.homeController = homeController;
+        homeController.updateFestivalList(currentYearMonth.toString());
     }
 }
