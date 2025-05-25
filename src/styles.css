@@ -52,46 +52,8 @@ Button:hover {
 }
 
 /*****singup****/
-.bg-img {
-    -fx-background-image: url('/assets/bg.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
 
-.bg1-img {
-    -fx-background-image: url('/assets/bg1.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-background-position: 0px -100px;
-}
 
-.bg2-img {
-    -fx-background-image: url('/assets/bg2.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
-
-.bg3-img {
-    -fx-background-image: url('/assets/bg3.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
-
-.bg4-img {
-    -fx-background-image: url('/assets/bg4.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
-.bg5-img {
-    -fx-background-image: url('/assets/bg5.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-background-position: center center;
-}
 .menu-item {
     -fx-padding: 8px 8px;
     -fx-border-color: #838181;
@@ -142,23 +104,6 @@ Button:hover {
 .red-progress {
     -fx-accent: #ff0000;
     -fx-pref-height: 24px;
-}
-
-#festivalList {
-    -fx-background-image: url('/assets/calendar_bg.png');
-    -fx-background-repeat: no-repeat;
-    -fx-background-size: cover;
-    -fx-background-position: center;
-    -fx-pref-width: 100px;
-    -fx-pref-height: 100px;
-    -fx-background-radius: 8px;
-    -fx-padding: 8px;
-    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.1), 8, 0, 0, 4);
-}
-
-
-#festivalList Label {
-    -fx-font-family: "Segoe UI", sans-serif;
 }
 
 .wallet {
