@@ -22,13 +22,4 @@ public class Dialog {
 
         return dialog.showAndWait().orElse("");
     }
-
-    public static boolean confirm(String message) {
-        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
-        alert.setHeaderText("Association Request");
-        alert.setContentText(message);
-
-        Optional<javafx.scene.control.ButtonType> result = alert.showAndWait();
-        return result.isPresent() && result.get() == javafx.scene.control.ButtonType.OK;
-    }
 }
