@@ -25,6 +25,18 @@ public class DataUtil {
         return sdf.format(new Date());
     }
 
+
+    // 保存愿望清单
+    public static void saveWish(String name, String amount) {
+        String filepath = "data/" + currentUser.getUsername() + "/wishlist.csv";
+        try (FileWriter writer = new FileWriter(filepath, true)) {
+            String time = getCurrentTime();
+            writer.write(name + "," + amount + "," + time + "\n");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     // utils/DataUtil.java
     public static void saveProfile(String username, String email, String password) {
         String oldUsername = currentUser.getUsername();
@@ -103,6 +115,38 @@ public class DataUtil {
         }
     }
 
+    // 创建用户及其相关文件
+    public static boolean createUserAndFiles(String username, String email, String password) {
+        File file = new File("data/" + username);
+        if (!file.exists()) {
+            file.mkdir();
+
+            saveProfile(username, email, password);
+
+            try (FileWriter writer = new FileWriter("data/" + username + "/wallet.csv")) {
+                writer.write("Amount,Category,Company,Time\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            try (FileWriter writer = new FileWriter("data/" + username + "/wishlist.csv")) {
+                writer.write("Wish,Amount,Time\n");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            String filepath = "data/" + username + "/goal.txt";
+            try (FileWriter writer = new FileWriter(filepath)) {
+                writer.write("0");
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     // 保存数据到指定文件
     public static void saveData(String filename, String data) {
@@ -458,6 +502,30 @@ public class DataUtil {
         return false;
     }
 
+    // 读取愿望清单
+    public static List<Wish> readWishList() {
+        String filepath = "data/" + currentUser.getUsername() + "/wishlist.csv";
+
+        List<Wish> list = new ArrayList<>();
+        File file = new File(filepath);
+        if (file.exists()) {
+            try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+                String line;
+                int lineNumber = 0;
+                while ((line = reader.readLine()) != null) {
+                    if (lineNumber++ > 0) {
+                        String[] split = line.split(",");
+                        if (split.length >= 3) {
+                            list.add(new Wish(split[0], Double.parseDouble(split[1]), split[2]));
+                        }
+                    }
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return list;
+    }
 
     // 读取收入记录
     public static List<Wallet> readIncome() {
