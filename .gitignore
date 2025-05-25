@@ -1,0 +1,17 @@
+/bin/
+/out/
+/target/
+/build/
+
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+.classpath
+.project
+.settings/
+
+.DS_Store
+Thumbs.db
+/data/
