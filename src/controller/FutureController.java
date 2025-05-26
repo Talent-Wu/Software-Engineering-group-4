@@ -55,13 +55,27 @@ public class FutureController {
 
         loadData();
         calcGoal();
-
-
-        // Initialize the exit button
+        initUIState(); // 初始化UI状态
         exitButton.setOnAction(e -> {
-            DataUtil.viewingUser = null; // Clear the viewing state
-            StageContainer.switchStage("layout"); // Return to your own profile
+            if (DataUtil.viewingUser != null && !DataUtil.currentUser.equals(DataUtil.tempUser)) {
+                // 如果正在查看关联账户，则切换回自己的资料页面
+                DataUtil.currentUser=DataUtil.tempUser;
+                StageContainer.switchStage("layout"); // 切换回自己的资料页面
+                initUIState(); // 切换后重新初始化UI状态
+            } else {
+                // 如果已经在自己的资料页面，可以给出提示或者不做任何操作
+                Dialog.alert("You are already in your own profile.");
+            }
         });
+    }
+
+    // 初始化UI状态，根据是否查看关联账户禁用相应按钮
+    private void initUIState() {
+        boolean isViewingLinkedAccount = DataUtil.viewingUser != null && !DataUtil.currentUser.equals(DataUtil.tempUser);
+        moveUpButton.setDisable(isViewingLinkedAccount);
+        moveDownButton.setDisable(isViewingLinkedAccount);
+        setTargetButton.setDisable(isViewingLinkedAccount);
+        resetButton.setDisable(isViewingLinkedAccount);
     }
 
     private void calcGoal() {
@@ -161,7 +175,21 @@ public class FutureController {
     }
 
     private void recalibrateWishCompletion() {
-        List<Wish> updatedWishList = WishCalculater.calculateComplete(DataUtil.readIncome(), DataUtil.readExpense(), new ArrayList<>(data));
-        data.setAll(updatedWishList);
+        // 清空当前的表格数据
+        data.clear();
+
+        // 重新计算每个愿望的完成状态
+        List<Wish> updatedWishes = WishCalculater.calculateComplete(
+                DataUtil.readIncome(),
+                DataUtil.readExpense(),
+                DataUtil.readWishList()
+        );
+
+        // 更新表格数据
+        data.addAll(updatedWishes);
+
+        // 刷新表格显示
+        table.refresh();
     }
+
 }

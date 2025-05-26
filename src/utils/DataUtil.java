@@ -18,7 +18,9 @@ public class DataUtil {
     public static User currentUser = new User("testuser@gmail.com", "123", "Johns");
     // 当前查看的用户，可能与当前登录用户不同
     public static User viewingUser;
-
+    // 临时用户变量，用于页面跳转时存储当前查看的用户信息
+    public static User tempUser;
+    
     // 获取当前时间，格式为"yyyy-MM-dd HH:mm:ss"
     public static String getCurrentTime() {
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -127,7 +129,6 @@ public class DataUtil {
     public static User readProfile(String username) {
         String data = DataUtil.readData(username + "/profile.csv", true);
         if (data == null) return null;
-
         String[] split = data.split(",");
         if (split.length >= 4) { // 确保有足够的字段
             User user = new User(split[1], split[2], split[3]);
