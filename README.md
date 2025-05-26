@@ -67,3 +67,31 @@ Built using Agile methodology, this application combines AI automation with huma
 - Write user manual and built-in help documentation
 - Generate test datasets and validate data consistency  
 **GitHub Branch:** `User-Information`
+  
+# Contributing
+
+Before you submit your code, please read the following guidelines to ensure that your contributions meet our standards.
+
+## Commit Message Format
+
+To maintain consistency and readability in our commit messages, we require all commit messages to follow this format:
+
+v*.0 "what you update"_name
+
+### Examples
+- `v1.0 "Added user registration feature"_John Doe`
+- `v2.0 "Fixed login issue"_Jane Smith`
+- `v3.0 "Improved UI design"_Alice Johnson`
+
+### Explanation
+- **v*.0**: The version number, indicating which version the commit belongs to. For example, `v1.0` refers to the first version.
+- **what you update**: A brief description of the changes you've made, such as adding a new feature, fixing a bug, or improving the design.
+- **_name**: The name of the committer, for traceability and record-keeping purposes.
+
+## Branching Strategy
+- **Main branch**: `main`, where stable code is stored.
+- **Feature branches**: For example, `user-registration`, used for developing new features.
+- **Fix branches**: Starting with `fix/`, such as `fix/login-issue`, used for fixing problems.
+
+## Commit Workflow
+1. **Create a branch**: From the main branch, create a new feature or fix branch. Initiate PULL/PUSH requests, which will then be reviewed and approved by the lead.
