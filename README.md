@@ -94,4 +94,7 @@ v*.0 "what you update"_name
 - **Fix branches**: Starting with `fix/`, such as `fix/login-issue`, used for fixing problems.
 
 ## Commit Workflow
-1. **Create a branch**: From the main branch, create a new feature or fix branch. Initiate PULL/PUSH requests, which will then be reviewed and approved by the lead.
+1. Assign yourself a task from the project board.
+2. Create a sub-branch from the master branch with a descriptive name.
+3. Make regular commits to your sub-branch.
+4. Once your work is complete, open a pull request to merge your sub-branch into the master branch.
