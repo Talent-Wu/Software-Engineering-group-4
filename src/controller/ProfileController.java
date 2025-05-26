@@ -282,6 +282,8 @@ public class ProfileController {
                 DataUtil.viewingUser = DataUtil.readProfile(associatedUsername);
                 if (DataUtil.viewingUser != null) {
                     // 切换到对方账户的 future 页面
+                    DataUtil.tempUser=DataUtil.currentUser;
+                    DataUtil.currentUser= DataUtil.viewingUser;
                     StageContainer.switchStage("future");
                 } else {
                     // 提示关联账号不存在
